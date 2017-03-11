@@ -23,6 +23,7 @@ $ git clone https://github.com/rtasson/cicada.git
 $ cd cicada
 $ virtualenv virtualenv
 $ pip install -r requirements.txt
+$ mkdir -p /var/lib/cicada/{jobs,workspaces}
 $ python cicadad.py
 ```
 
