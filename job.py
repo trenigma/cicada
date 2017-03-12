@@ -5,6 +5,7 @@ class Job:
     def __init__(self, job_file=None, context=None):
         if job_file:
             # open our job's configuration
+            # TODO: handle misconfig/bad format json
             with open(job_file, 'r') as file:
                 text = file.read()
                 self.config = json.loads(text)
@@ -12,6 +13,8 @@ class Job:
             self.config['workspace'] = str(context.workspaces_dir / self.config['name'])
 
     def update_repo(self):
+        # TODO: instead of deleting & re-cloning the repo, clone only if it doesn't exist,
+        # and pull/update the HEAD if it does
         print("calling update_repo")
 
         repo_dir = self.config['workspace'] + "/" + self.config['repo']['name']

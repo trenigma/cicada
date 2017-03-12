@@ -14,11 +14,10 @@ class AppContext:
 
         # setup our working dirs
         for path in [ self.jobs_dir, self.workspaces_dir ]:
-            if not path.exists():
-                path.mkdir(parents=True)
+            path.mkdir(parents=True, exist_ok=True)
 
         # import all jobs
-        jobs_dir_listing = list(self.jobs_dir.glob("*.json"))
+        jobs_dir_listing = list(self.jobs_dir.glob("**/config.json"))
         for job_file in jobs_dir_listing:
             job = Job(job_file=str(job_file), context=self)
             self.jobs[job.config["name"]] = job

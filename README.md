@@ -32,3 +32,4 @@ $ python cicadad.py
 * kick off jobs asynchronously
 * CLI interface to query & add jobs
 * web interface to query & add jobs
+* serverwide configuration file
