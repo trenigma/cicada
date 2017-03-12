@@ -3,7 +3,7 @@ cicada
 
 ### "jenkins..? again..?"
 
-`cicada` is a build and deploy tool based in python. A simple workflow looks like so:
+`cicada` is a build and deploy tool written in Python 3. A simple workflow looks like so:
 
 1. (Install and) start cicadad. 
 2. Add a job to cicada, pointing it to a git repository. This will create an HTTP REST listener.
@@ -16,15 +16,20 @@ Be warned: the build script, fetched from the repo, is implicitly trusted in thi
 Please take every precaution to prevent it from being tampered with or allowing untrusted input.
 
 ### install and run
-This program targets Python 3.
+If you'd like to run a local copy, run:
+```
+$ apt-get install python3 python3-pip
+$ git clone https://github.com/rtasson/cicada.git
+$ cd cicada
+$ pip install -r requirements.txt
+$ python3 ./cicadad.py
+```
 
+Development is accomplished in Vagrant right now; to get setup, run:
 ```
 $ git clone https://github.com/rtasson/cicada.git
 $ cd cicada
-$ virtualenv virtualenv
-$ pip install -r requirements.txt
-$ mkdir -p /var/lib/cicada/{jobs,workspaces}
-$ python cicadad.py
+$ vagrant up
 ```
 
 ### wishlist
